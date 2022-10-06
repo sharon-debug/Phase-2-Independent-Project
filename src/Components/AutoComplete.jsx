@@ -1,13 +1,29 @@
-import{useState, useEffect} from "react"
+import{useState, useEffect, useContext} from "react"
 import finHub from "../API/finHub"
+import { WatchListContext } from "../Context/WatchListContext"
 
 export const AutoComplete = () => {
     const [search, setSearch] = useState("")
     const [results, setResults] = useState([])
+    const {addStock} = useContext(WatchListContext)
+
     const renderDropdown = ()=> {
         const dropDownClass = search ? "show" : null
         return (
-            <ul cclassName= {`dropdown-menu ${dropDownClass}`}>
+            <ul style = {{
+                height: "500px",
+                overflowY: "scroll",
+                overflowx: "hidden",
+                cursor: "pointer"
+
+            }}className= {`dropdown-menu ${dropDownClass}`}>
+                {results.map((result)=>{
+                    return (
+                        <li onClick={() => addStock(result.symbol)} key = {result.symbol} className="dropdown-item">{result.description}({result.symbol})
+
+                        </li>
+                    )
+                })}
 
             </ul>
         )  
@@ -25,7 +41,7 @@ export const AutoComplete = () => {
                 
                 if (isMounted){
 
-                    setResults(response.data.results)
+                    setResults(response.data.result)
 
                 }
                 
@@ -52,11 +68,7 @@ export const AutoComplete = () => {
             
             </input>
             <label htmlFor="search">Search</label>
-<ul className="dropdown-menu">
-    <li>stock1</li>
-    <li>stock2</li>
-    <li>stock3</li>
-</ul>
+                   {renderDropdown()}
 
     </div>
      

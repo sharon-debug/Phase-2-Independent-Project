@@ -1,11 +1,14 @@
 import { render } from "@testing-library/react"
-import {useState, useEffect} from "react"
+import {useState, useEffect, useContext} from "react"
 import {BsFillCaretDownFill, BsFillCaretUpFill} from  "react-icons/bs"
 import finHub from "../API/finHub"
+import { WatchListContext } from "../Context/WatchListContext"
 
 export const StockList = () => {
     const [stock , setStock] = useState([])
-    const [watchList, setWatchList]= useState(["GOOGL","MSFT","AMZN"])
+      const {watchList} = useContext(WatchListContext)
+    
+    
 
     const changeColor = (change) => {
         return change > 0 ? "success": "danger"
