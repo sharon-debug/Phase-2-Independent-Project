@@ -1,6 +1,24 @@
-
+import Chart from "react-apexcharts"
 
 export const StockChart = () =>{
     const {day, week,year} = chartData
-    return <h3>StockChart</h3>
+
+
+
+
+
+
+
+
+
+
+
+    
+    
+    
+    
+    
+    
+    
+    return <div><></>
 }
