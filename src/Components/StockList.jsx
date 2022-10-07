@@ -49,6 +49,7 @@ export const StockList = () => {
            
 
             }catch (err){
+             console.log(err)
 
         } 
 
