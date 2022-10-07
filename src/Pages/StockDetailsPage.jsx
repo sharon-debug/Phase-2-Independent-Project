@@ -18,19 +18,23 @@ export const StockDetailsPage = () => {
     const {symbol} = useParams()
     useEffect(() => {
          const fetchData = async ()=> {
+          const date= new Date()
+          const currentTime = new Date().getTime()/10000000;
+          console.log(date);
             const currentTime = Math.floor(date.getTime()/1000)
-            const oneDay = currentTime - 24* 60 * 60
+            const oneDay = currentTime -3* 24* 60 * 60
             const response = await finHub.get("/stock/candle",{
                 params: {
                     symbol,
                     from: oneDay,
-                    to,
-                    resolution
+                    to : currentTime,
+                    resolution : 30
                 }
             })
+            console.log(response)
          }
-        
-    })
+        fetchData()
+    }, [])
     return <div>StockDetailsPage {symbol}</div>
 }
   //  const [chartData , setChartData] = useState()
