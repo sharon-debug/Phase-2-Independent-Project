@@ -3,13 +3,13 @@ import { useEffect,useState } from "react"
 import {useParams} from "react-router-dom"
 import finHub from "../API/finHub"
 import { StockChart } from "../Components/StockChart"
-
+import { StockData } from "../Components/StockData"
 
 const formatData = (data)=>{
    return data.t.map((el, index) =>{
        return{
          x: el  * 1000,
-            y: data.c[index]
+            y: Math.floor(data.c[index])
         }
     })
 }
@@ -79,10 +79,29 @@ export const StockDetailsPage = () => {
    {chartData && (
            <div>
                 <StockChart chartData= {chartData} symbol = {symbol}/>
+                <StockData symbol={symbol}/>
             </div>
+
         )}
      </div>
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   //  const [chartData , setChartData] = useState()
     //const { symbol} = useParams()
     //useEffect(() => {

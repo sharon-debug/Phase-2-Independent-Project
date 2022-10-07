@@ -6,7 +6,7 @@ import { StockList } from "../Components/StockList"
 
 
 export const StockOverviewPage = () => {
-    return <div>StockOverviewPage
+    return <div>
      <AutoComplete/> 
     <StockList/>
    

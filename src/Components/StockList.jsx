@@ -6,7 +6,7 @@ import { WatchListContext } from "../Context/WatchListContext"
 
 export const StockList = () => {
     const [stock , setStock] = useState([])
-      const {watchList} = useContext(WatchListContext)
+      const {watchList, deleteStock } = useContext(WatchListContext)
     const navigate = useNavigate()
     
 
@@ -81,14 +81,17 @@ export const StockList = () => {
                 {stock.map((stockData)=>{
                     return (
                         <tr style={{cursor: "pointer"}} onClick={() => handleStockSelect(stockData.symbol)} className="table-row" key= {stockData.symbol}>
-                            <th scope="row">{stockData.symbol}</th>
+                              <th scope="row">{stockData.symbol}</th>
                             <td>{stockData.data.c}</td>
                             <td className= {`text-${changeColor(stockData.data.d)}`}   >{stockData.data.d}{renderIcon(stockData.data.dp)}</td>
                             <td className= {`text-${changeColor(stockData.data.dp)}`}>{stockData.data.dp}{renderIcon(stockData.data.dp)}</td>
                             <td>{stockData.data.h}</td>  
                             <td>{stockData.data.l}</td> 
                             <td>{stockData.data.o}</td>
-                            <td>{stockData.data.pc}</td> 
+                            <td>{stockData.data.pc} <button className="btn btn-danger btn-sm ml-3 d-inline-block delete-button" onClick={(e) => {
+                                e.stopPropagation()
+                                deleteStock(stockData.symbol)
+                            }}>Remove</button> </td> 
 
                         </tr>
                     )
