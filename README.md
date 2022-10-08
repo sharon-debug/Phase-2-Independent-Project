@@ -1,6 +1,28 @@
 # Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project was bootstrapped with Create React App.
+
+# Title
+
+STOCK  TRADING WEB DEVELOPMENT
+
+# Objective of the project
+A stock trading web application is designed to handle and update investment portfolios along with easy selling and buying on trading platform. It consume data from external api and give consumers an interface to buy stock.
+Therefore ,  this application will help user to keep up they track on the stock, they can also  see the current price as while as  the historical prices.
+It is a well working web.
+
+# Techologie I used in building this app
+ 
+ Programming language- JavaScript 
+
+JavaScript library-React.js
+
+Syntax library-JSX (JavaScript XML)
+
+Markup language-HTML
+
+Style sheet language-CSS
+
 
 ## Available Scripts
 
