@@ -4,7 +4,7 @@ This project was bootstrapped with Create React App.
 
 # Title
 
-STOCK  TRADING WEB DEVELOPMENT
+STOCK  TRADING WEB APPLICATION
 
 # Objective of the project
 A stock trading web application is designed to handle and update investment portfolios along with easy selling and buying on trading platform. It consume data from external api and give consumers an interface to buy stock.
